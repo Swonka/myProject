@@ -13,6 +13,7 @@
               *ngIf="!signupForm.get('username').valid && signupForm.get('username').touched" 
               class="help-block">Please enter a valid username!</span>
           </div>
+
           <div class="form-group">
             <label for="email">email</label>
             <input
@@ -24,6 +25,33 @@
               *ngIf="!signupForm.get('email').valid && signupForm.get('email').touched" 
               class="help-block">Please enter a valid email!</span>
           </div>
+
+          <div class="form-group">
+            <label for="favoriteNumbe">favoriteNumbe</label>
+            <input
+              type="number"
+              id="favoriteNumbe"
+              formControlName="favoriteNumbe"
+              class="form-control">
+              <span 
+              *ngIf="!signupForm.get('favoriteNumbe').valid && signupForm.get('favoriteNumbe').touched" 
+              class="help-block">Please enter a valid favoriteNumbe!</span>
+          </div>
+
+          
+          <div class="form-group">
+            <label for="birthday">birthday</label>
+            <input
+              type="datetime-local"
+              id="birthday"
+              formControlName="birthday"
+              class="form-control">
+              <span 
+              *ngIf="!signupForm.get('birthday').valid && signupForm.get('birthday').touched" 
+              class="help-block">Please enter a valid birthday!</span>
+          </div>
+
+
           <div class="radio" *ngFor="let gender of genders">
             <label>
               <input
@@ -36,4 +64,23 @@
         </form>
       </div>
     </div>
+</div>
+<hr>
+<p>Search for favoriteNumber, anyone with at favoritenumber lower shows up</p>
+<input type="text" [(ngModel)]="searchFilter">
+<hr>
+<div claas="row">
+  <div class="col-xs-10">
+
+      <ul class="list-group"> 
+          <li 
+          class="list-group-item" 
+          style="cursor: pointer"
+          *ngFor="let user of users | myFilter: searchFilter:'favoriteNumbe' "
+          >
+
+          {{user.username | lowercase}} - {{user.email }} - {{user.gender | uppercase}} - {{user.favoriteNumber }} - {{user.birthday | date: 'fullDate' | uppercase }}
+
+      </ul>
+  </div>
 </div>

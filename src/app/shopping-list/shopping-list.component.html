@@ -1,9 +1,11 @@
+<h1 id='title'>shopping list</h1>
 <div claas="row">
     <div class="col-xs-10">
         <app-shopping-edit></app-shopping-edit>
         <hr>
-        <ul class="list-group"> 
+        <ul id="shopping-list items" class="list-group"> 
             <a 
+            id="single-item"
             class="list-group-item" 
             style="cursor: pointer"
             *ngFor="let ingredient of ingredients"

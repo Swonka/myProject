@@ -1,9 +1,8 @@
-
+import { AdminService } from './../auth/admin.service';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
-import { AdminService } from '../auth/admin.service';
 
 
 @Component({
@@ -12,36 +11,38 @@ import { AdminService } from '../auth/admin.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-    loginForm: FormGroup;
+  loginForm: FormGroup;
 
-
+  // DI - Dependency injection.
   constructor(private fb: FormBuilder, private router: Router, 
     private auth: AuthService, private adminService: AdminService) { }
 
   ngOnInit() {
-    this.loginForm = new FormGroup({
-      "username": new FormControl(null),
-      "Password": new FormControl(null),
+    this.loginForm = this.fb.group({
+      "username": ['', [Validators.required, Validators.minLength(3)]],
+      "password": ['', Validators.required]
     })
   }
-  
+
   public onLoginClick() : void {
     console.log(this.loginForm);  
-    
+    console.log('hi from login.component');
 
     // If this form is valid - then call the server.
     if (this.loginForm.valid) {
-
+      // Then call the server
+      // And if login successful
 
       if (this.loginForm.value.username === 'admin') {
         this.adminService.loginAdmin().subscribe(()=> {
-          this.router.navigate(['portal/user-admin']);
+          this.router.navigate(['stash']);
+          console.log('hi from username==admin')
         });
       } 
       else {
         console.log("In login");
         this.auth.login().subscribe(()=> {
-          this.router.navigate(['portal']);
+          this.router.navigate(['/recipes']);
         }); 
       }
     } else {
