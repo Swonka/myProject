@@ -1,0 +1,35 @@
+<div class="container wrapper">
+    <div class="row">
+
+        <!-- Issue table -->
+        <div class="col-md-12">
+            <div class="inner">
+                <h3>My Unicorn</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Unicorn Name</th>
+                            <th scope="col">Unicorn Color</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let unicorn of unicornList">
+                            <th scope="row">{{unicorn.id}}</th>
+                            <td>{{unicorn.name}}</td>
+                            <td>{{unicorn.color}}</td>
+                            <td>
+                                <button type="button" class="btn btn-success btn-sm move-right" [routerLink]="['/edit-unicorn/', unicorn.id]">Edit</button>
+                                <button type="button" class="btn btn-danger btn-sm" (click)="deleteUnicorn(unicorn)">Remove</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+

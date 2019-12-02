@@ -1,0 +1,19 @@
+{
+  "unicorn": [
+    {
+      "name": "Twillight Sparkle",
+      "color": "purple",
+      "id": 1
+    },
+    {
+      "name": "Rainbow Dash",
+      "color": "Blue",
+      "id": 2
+    },
+    {
+      "name": "pinkie pie",
+      "color": "MEGA pink",
+      "id": 3
+    }
+  ]
+}
