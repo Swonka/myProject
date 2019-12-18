@@ -1,3 +1,4 @@
+/*
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MyCounterComponent } from './my-counter.component';
@@ -23,3 +24,4 @@ describe('MyCounterComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+*/

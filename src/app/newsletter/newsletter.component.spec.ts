@@ -1,3 +1,4 @@
+/*
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NewsletterComponent } from './newsletter.component';
@@ -23,3 +24,4 @@ describe('NewsletterComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+*/

@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 import { User } from '../shared/user.model';
 
 @Component({
@@ -18,15 +18,18 @@ export class NewsletterComponent implements OnInit {
 
   users: User[] = [
 
-    new User('Rip', 'rip@and.dk', "male",8, new Date(2019, 0, 1, 8, 0,0 )), 
-    new User('Rap','Rap@and.dk', 'male',9,new Date(2019, 0, 1, 8, 0,0 )),
-    new User('Rup', 'Rup@and.dk', 'male',10,new Date(2019, 0, 1, 8, 0,0 )),
+    new User('Rip', 'rip@and.dk', "male",1, new Date(2019, 0, 1, 8, 0,0 ),15), 
+    new User('Rap','Rap@and.dk', 'male',2,new Date(2019, 0, 1, 8, 0,0 ),15),
+    new User('Rup', 'Rup@and.dk', 'male',3,new Date(2019, 0, 1, 8, 0,0 ),15),
 
   ];
 
   searchFilter : number;
 
   constructor() { }
+
+  min = 10;
+  max = 20;
 
   ngOnInit() {
 
@@ -37,8 +40,21 @@ export class NewsletterComponent implements OnInit {
       'gender' : new FormControl('male'),
       'favoriteNumbe': new FormControl(null),
       'birthday': new FormControl(null),
+      'numberOfreinds': new FormControl(null, [freindsRangeValidator(this.min,this.max)]),
 
     });
+
+
+
+    
+function freindsRangeValidator(min: number, max: number): ValidatorFn {
+  return (control: AbstractControl): { [key: string]: boolean } | null => {
+      if (control.value !== undefined && (isNaN(control.value) || control.value < min || control.value > max)) {
+          return { 'freindsRange': true };
+      }
+      return null;
+  };
+}
 
   }
 
@@ -55,5 +71,8 @@ export class NewsletterComponent implements OnInit {
     console.log(this.users)
     
   }
+
+  
+
 
 }

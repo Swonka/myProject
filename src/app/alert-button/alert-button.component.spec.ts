@@ -1,3 +1,4 @@
+/*
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AlertButtonComponent } from './alert-button.component';
@@ -23,3 +24,4 @@ describe('AlertButtonComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+*/

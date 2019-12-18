@@ -9,6 +9,7 @@ import { increment, decrement, reset } from '../counter.actions';
   styleUrls: ['./my-counter.component.css'],
 })
 export class MyCounterComponent {
+  
   count$: Observable<number>;
  
   constructor(private store: Store<{ count: number }>) {

@@ -11,6 +11,11 @@ import { StashComponent } from './stash/stash.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth/auth.guard';
 import { AdminGuard } from './auth/admin.guard';
+import { UnicornListComponent } from './unicorn-farm/unicorn-list/unicorn-list.component';
+import { EditUnicornComponent } from './unicorn-farm/edit-unicorn/edit-unicorn.component';
+import { AddUnicornComponent } from './unicorn-farm/add-unicorn/add-unicorn.component';
+import { MyCounterComponent } from './my-counter/my-counter.component';
+import { TodoViewComponent } from './todo-view/todo-view.component';
 
 
 const appRoutes: Routes = [
@@ -32,6 +37,13 @@ const appRoutes: Routes = [
     {path:'stash', component: StashComponent, canActivate: [AuthGuard],
 
     }, 
+
+    { path:'unicorn-list', component: UnicornListComponent},
+    { path:'edit-unicorn/:id', component: EditUnicornComponent},
+    { path:'add-unicorn', component: AddUnicornComponent},
+
+    { path:'my-counter', component: MyCounterComponent},
+    { path:'todo-view', component: TodoViewComponent}
     
    /*
     {path :'login', component: LoginComponent, canActivate: [AuthGuard], 

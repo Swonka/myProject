@@ -51,6 +51,18 @@
               class="help-block">Please enter a valid birthday!</span>
           </div>
 
+          <div class="form-group">
+            <label for=" numberOfreinds"> number Of freinds</label>
+            <input
+              type="number"
+              id="numberOfreinds"
+              formControlName="numberOfreinds"
+              class="form-control">
+              <span 
+              *ngIf="!signupForm.get('numberOfreinds').valid && signupForm.get('numberOfreinds').touched" 
+              class="help-block">Please enter a valid number</span>
+          </div>
+
 
           <div class="radio" *ngFor="let gender of genders">
             <label>
@@ -67,6 +79,7 @@
 </div>
 <hr>
 <p>Search for favoriteNumber, anyone with at favoritenumber lower shows up</p>
+<p>(psssst use 1/2/3)</p>
 <input type="text" [(ngModel)]="searchFilter">
 <hr>
 <div claas="row">
@@ -79,7 +92,7 @@
           *ngFor="let user of users | myFilter: searchFilter:'favoriteNumbe' "
           >
 
-          {{user.username | lowercase}} - {{user.email }} - {{user.gender | uppercase}} - {{user.favoriteNumber }} - {{user.birthday | date: 'fullDate' | uppercase }}
+          {{user.username | lowercase}} - {{user.email }} - {{user.gender | uppercase}} - {{user.favoriteNumber }} - {{user.birthday | date: 'fullDate' | uppercase }} - {{user.number}}
 
       </ul>
   </div>

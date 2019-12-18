@@ -11,4 +11,9 @@ const _counterReducer = createReducer(initialState,
  
 export function counterReducer(state, action) {
   return _counterReducer(state, action);
+
+const newState = (state, newState) =>{
+  return Object.assign({},state, newState)
+}
+
 }

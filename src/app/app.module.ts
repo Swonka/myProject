@@ -27,6 +27,28 @@ import { MyFilterPipe } from './shared/my-filter.pipe';
 import { StashComponent } from './stash/stash.component';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+
+import { UnicornFarmComponent } from './unicorn-farm/unicorn-farm.component';
+import { UnicornService } from './unicorn-farm/unicorn.service';
+import { AddUnicornComponent } from './unicorn-farm/add-unicorn/add-unicorn.component';
+import { EditUnicornComponent } from './unicorn-farm/edit-unicorn/edit-unicorn.component';
+import { UnicornListComponent } from './unicorn-farm/unicorn-list/unicorn-list.component';
+
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './counter.reducer';
+import { MyCounterComponent } from './my-counter/my-counter.component';
+import { AlertButtonComponent } from './alert-button/alert-button.component';
+
+//Redux
+import { NgRedux, NgReduxModule } from '@angular-redux/store';
+import { IAppState, rootReducer, INITIAL_STATE } from './store';
+import { TodoOverviewComponent } from './todo-overview/todo-overview.component';
+import { TodoListComponent } from './todo-list/todo-list.component';
+import { TodoViewComponent } from './todo-view/todo-view.component';
+
+
+
 
 
 
@@ -47,7 +69,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NewsletterComponent,
     MyFilterPipe,
     StashComponent,
-    LoginComponent
+    LoginComponent,
+
+    UnicornFarmComponent,
+    AddUnicornComponent,
+    EditUnicornComponent,
+    UnicornListComponent,
+    MyCounterComponent,
+    AlertButtonComponent,
+    TodoOverviewComponent,
+    TodoListComponent,
+    TodoViewComponent,
+
+  
+
 
   ],
   imports: [
@@ -60,12 +95,27 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatButtonModule, 
     MatToolbarModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    StoreModule.forRoot({ count: counterReducer }),
+    NgReduxModule
+  
+
+
+
     
     
 
   ],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService, UnicornService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+  //Activation of redux store
+  constructor (ngRedux: NgRedux<IAppState>) {
+    ngRedux.configureStore(rootReducer, INITIAL_STATE);
+  }
+
+
+}

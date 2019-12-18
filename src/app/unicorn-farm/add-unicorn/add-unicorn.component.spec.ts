@@ -1,3 +1,4 @@
+/*
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddUnicornComponent } from './add-unicorn.component';
@@ -23,3 +24,4 @@ describe('AddUnicornComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+*/
