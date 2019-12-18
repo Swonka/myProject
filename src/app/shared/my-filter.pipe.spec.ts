@@ -5,7 +5,7 @@ import { User } from './user.model';
 describe('MyFilterPipe', () => {
   
   
-  it('Test with 0', () => {
+  it('Test with 0 as value, should not return User obj', () => {
 
     const filter = new MyFilterPipe();
 
@@ -25,7 +25,7 @@ describe('MyFilterPipe', () => {
 
   });
 
-  it('Test with 1', () => {
+  it('Test with 1, should return first User obj', () => {
 
     const filter = new MyFilterPipe();
 

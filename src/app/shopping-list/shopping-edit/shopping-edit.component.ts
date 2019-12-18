@@ -19,6 +19,7 @@ export class ShoppingEditComponent implements OnInit {
   ngOnInit() {
   }
 
+  //template drive form
   onAddItem(form: NgForm){
 
     const value = form.value;

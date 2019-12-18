@@ -14,7 +14,6 @@ export class NewsletterComponent implements OnInit {
   genders = ['male', 'female'];
   signupForm: FormGroup;
 
-  //@Output() userChange = new EventEmitter<User>();
 
   users: User[] = [
 
@@ -24,7 +23,7 @@ export class NewsletterComponent implements OnInit {
 
   ];
 
-  searchFilter : number;
+  //searchFilter : number;
 
   constructor() { }
 
@@ -33,6 +32,7 @@ export class NewsletterComponent implements OnInit {
 
   ngOnInit() {
 
+    //Reactive form
     this.signupForm = new FormGroup({
 
       'username' : new FormControl(null, Validators.required),

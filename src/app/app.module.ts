@@ -38,8 +38,6 @@ import { UnicornListComponent } from './unicorn-farm/unicorn-list/unicorn-list.c
 import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './counter.reducer';
 import { MyCounterComponent } from './my-counter/my-counter.component';
-import { AlertButtonComponent } from './alert-button/alert-button.component';
-
 //Redux
 import { NgRedux, NgReduxModule } from '@angular-redux/store';
 import { IAppState, rootReducer, INITIAL_STATE } from './store';
@@ -76,7 +74,6 @@ import { TodoViewComponent } from './todo-view/todo-view.component';
     EditUnicornComponent,
     UnicornListComponent,
     MyCounterComponent,
-    AlertButtonComponent,
     TodoOverviewComponent,
     TodoListComponent,
     TodoViewComponent,
