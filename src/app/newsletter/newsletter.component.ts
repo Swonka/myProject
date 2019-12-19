@@ -40,7 +40,7 @@ export class NewsletterComponent implements OnInit {
       'gender' : new FormControl('male'),
       'favoriteNumbe': new FormControl(null),
       'birthday': new FormControl(null),
-      'numberOfreinds': new FormControl(null, [freindsRangeValidator(this.min,this.max)]),
+      'numberOfreinds': new FormControl(null, /* [freindsRangeValidator(this.min,this.max)]*/),
 
     });
 

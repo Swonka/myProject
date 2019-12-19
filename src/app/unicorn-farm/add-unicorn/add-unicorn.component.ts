@@ -14,7 +14,7 @@ export class AddUnicornComponent implements OnInit {
   unicornArr: any = [];
 
   ngOnInit() {
-    this.addIssue()
+    this.addUnicorn()
   }
 
   constructor(
@@ -24,7 +24,7 @@ export class AddUnicornComponent implements OnInit {
     public unicornService: UnicornService
   ){ }
 
-  addIssue() {
+  addUnicorn() {
     this.unicornForm = this.fb.group({
       name: [''],
       color: ['']
